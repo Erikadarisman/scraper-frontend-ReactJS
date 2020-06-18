@@ -30,7 +30,7 @@ class Home extends Component {
   }
 
   async getAnime() {
-    await Axios.get("http://localhost:5000/getallpage").then((x) => {
+    await Axios.get("https://anime-list.herokuapp.com/getallpage").then((x) => {
       console.log(x.data);
       this.setState({ data: x.data.values });
       console.log("state", this.state.data);
@@ -59,8 +59,7 @@ class Home extends Component {
                 <CardText>
                   {/* {item.synopsis[item.synopsis.length-1]} */}
                 </CardText>
-                <CardLink href="#">Card Link</CardLink>
-                <CardLink href="#">Another Link</CardLink>
+                <CardLink href={item.link}>Original Link</CardLink>
               </CardBody>
             </Card>
           </Col>
@@ -93,7 +92,7 @@ class Home extends Component {
               <p>the source of this web is My Anime List.</p>
               <p className="lead">
                 <a href="https://myanimelist.net/" target="_blank">
-                  <Button color="primary">Learn More</Button>
+                  <Button color="primary">Visit</Button>
                 </a>
               </p>
             </Jumbotron>
