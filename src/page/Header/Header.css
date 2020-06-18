@@ -1,0 +1,13 @@
+.navbarBrand {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 50px;
+    line-height: 68px;
+    color: black !important;
+}
+
+.navbar {
+    -webkit-box-shadow: 0px 4px 17px -5px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 4px 17px -5px rgba(0,0,0,0.75);
+    box-shadow: 0px 4px 17px -5px rgba(0,0,0,0.75);
+}
