@@ -36,7 +36,7 @@ class Header extends React.Component {
           <Collapse isOpen={this.state.isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NavItem>
-              <NavLink href="/About">About</NavLink>
+              <NavLink href="https://github.com/Erikadarisman/scraper-frontend-ReactJS">About</NavLink>
             </NavItem>
           </Nav>
           </Collapse>

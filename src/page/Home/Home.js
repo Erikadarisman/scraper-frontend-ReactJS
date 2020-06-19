@@ -21,7 +21,7 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: null,
+      data: [],
     };
   }
 
@@ -37,14 +37,16 @@ class Home extends Component {
     });
   }
 
-  renderCard = () => {
+  renderCard(){
     if (this.state.data.length != 0) {
       let jsx = this.state.data.map((item) => {
         return (
           <Col style={{ marginTop: "25px" }} sm="4">
             <Card style={{ maxHeight: "700px" }}>
               <CardBody>
-                <CardTitle>{item.title}</CardTitle>
+                <CardTitle className="row justify-content-center align-items-center" style={{
+                  minHeight: "72px",
+                }}>{item.title}</CardTitle>
               </CardBody>
               <img
                 style={{
@@ -70,37 +72,72 @@ class Home extends Component {
   };
 
   render() {
-    if (!this.state.data) {
-      return (
-        <div className="row justify-content-center">
-          <div className="col-md-12 text-center" style={{ marginTop: "200px" }}>
-            <Spinner style={{ width: "10rem", height: "10rem" }} />
+    return (
+      <div>
+        {this.state.data.length == 0 && (
+          <div className="row justify-content-center">
+            <div
+              className="text-center"
+              style={{ marginTop: "200px" }}
+            >
+              <Spinner style={{ width: "5rem", height: "5rem" }} />
+            </div>
           </div>
-        </div>
-      );
-    } else {
-      return (
-        <Container style={{ paddingBottom: "50px" }}>
-          <div style={{ marginTop: "20px" }}>
-            <Jumbotron>
-              <h1 className="display-3">Hello!</h1>
-              <p className="lead">
-                this website is only for the purposes of learning scrap with
-                expressJS and reactJS
-              </p>
-              <hr className="my-2" />
-              <p>the source of this web is My Anime List.</p>
-              <p className="lead">
-                <a href="https://myanimelist.net/" target="_blank">
-                  <Button color="primary">Visit</Button>
-                </a>
-              </p>
-            </Jumbotron>
-          </div>
-          <Row>{this.renderCard()}</Row>
-        </Container>
-      );
-    }
+        )}
+        {this.state.data.length !== 0 && (
+          <Container style={{ paddingBottom: "50px" }}>
+            <div style={{ marginTop: "20px" }}>
+              <Jumbotron>
+                <h1 className="display-3">Hello!</h1>
+                <p className="lead">
+                  this website is only for the purposes of learning scrap with
+                  expressJS and reactJS
+                </p>
+                <hr className="my-2" />
+                <p>the source of this web is My Anime List.</p>
+                <p className="lead">
+                  <a href="https:myanimelist.net/" target="_blank">
+                    <Button color="primary">Visit</Button>
+                  </a>
+                </p>
+              </Jumbotron>
+            </div>
+            <Row>{this.renderCard()}</Row>
+          </Container>
+        )}
+      </div>
+    );
+    // if (!this.state.data) {
+    //   return (
+    //     <div className="row justify-content-center">
+    //       <div className="col-md-12 text-center" style={{ marginTop: "200px" }}>
+    //         <Spinner style={{ width: "10rem", height: "10rem" }} />
+    //       </div>
+    //     </div>
+    //   );
+    // } else {
+    //   return (
+    //     <Container style={{ paddingBottom: "50px" }}>
+    //       <div style={{ marginTop: "20px" }}>
+    //         <Jumbotron>
+    //           <h1 className="display-3">Hello!</h1>
+    //           <p className="lead">
+    //             this website is only for the purposes of learning scrap with
+    //             expressJS and reactJS
+    //           </p>
+    //           <hr className="my-2" />
+    //           <p>the source of this web is My Anime List.</p>
+    //           <p className="lead">
+    //             <a href="https://myanimelist.net/" target="_blank">
+    //               <Button color="primary">Visit</Button>
+    //             </a>
+    //           </p>
+    //         </Jumbotron>
+    //       </div>
+    //       <Row>{this.renderCard()}</Row>
+    //     </Container>
+    //   );
+    // }
   }
 }
 export default Home;
